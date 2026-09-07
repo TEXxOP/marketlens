@@ -9,6 +9,8 @@ macro-event windows, and clear source limitations.
 
 **It does not connect to a broker, place orders, or provide investment advice.**
 
+![MarketLens live-data demo](assets/marketlens-demo.gif)
+
 ## What it does
 
 - Downloads real end-of-day price proxies for E-mini S&P 500 (`ES=F`), WTI crude
@@ -99,6 +101,13 @@ docker compose up --build
 The Docker compose stack serves the API on `:8000` and dashboard on `:8501`.
 GitHub Actions runs the test suite on pushes and pull requests.
 
+To regenerate the checked-in live-data GIF after a product change:
+
+```bash
+pip install -r requirements-dev.txt
+python scripts/create_demo_gif.py
+```
+
 ## Project structure
 
 ```text
@@ -115,7 +124,7 @@ marketlens/
 
 ## Resume-ready description (only after you run and document it)
 
-**MarketLens — Global Futures Research & Paper-Trading Lab** | Python, pandas,
+**MarketLens - Global Futures Research & Paper-Trading Lab** | Python, pandas,
 FastAPI, Streamlit, Plotly, CFTC, FRED
 
 - Built a reproducible research pipeline using end-of-day futures data, weekly

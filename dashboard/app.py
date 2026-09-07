@@ -19,7 +19,7 @@ from marketlens.data.market import DataUnavailableError
 from marketlens.services.pipeline import run_research
 
 
-st.set_page_config(page_title="MarketLens", page_icon="◈", layout="wide")
+st.set_page_config(page_title="MarketLens", page_icon="M", layout="wide")
 st.title("MarketLens")
 st.caption("Global futures research and paper-trading simulation. No brokerage integration. No live orders.")
 

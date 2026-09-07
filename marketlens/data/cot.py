@@ -1,7 +1,7 @@
 """CFTC Traders in Financial Futures (TFF) positioning adapter.
 
 The CFTC publishes the TFF dataset through its unauthenticated Public Reporting
-Environment API. It is weekly, reportable-position data—not a real-time signal.
+Environment API. It is weekly, reportable-position data, not a real-time signal.
 """
 
 from __future__ import annotations
