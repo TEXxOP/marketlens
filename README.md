@@ -121,18 +121,3 @@ marketlens/
   data/sample/    # versioned FOMC research calendar
   tests/          # no-look-ahead, cost, validation, event-window tests
 ```
-
-## Resume-ready description (only after you run and document it)
-
-**MarketLens - Global Futures Research & Paper-Trading Lab** | Python, pandas,
-FastAPI, Streamlit, Plotly, CFTC, FRED
-
-- Built a reproducible research pipeline using end-of-day futures data, weekly
-  CFTC positioning, macroeconomic data, and FOMC event windows.
-- Implemented lagged trend signals, volatility targeting, transaction costs,
-  leverage caps, walk-forward-ready evaluation outputs, and risk metrics.
-- Shipped a Dockerized Streamlit/FastAPI application with tests and CI; designed
-  strictly for research and simulation, with no order-execution capability.
-
-Do not add performance claims until you have checked in an artifact with the
-exact date range, costs, data caveats, and reproducible configuration.

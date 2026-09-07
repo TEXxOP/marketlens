@@ -1,0 +1,36 @@
+{
+  "source": "yahoo-finance-eod",
+  "caveat": "Public end-of-day continuous futures proxies. Contract rolls, settlement conventions, survivorship, and data revisions require independent validation.",
+  "generated_at_utc": "2026-09-07T20:49:21.266323+00:00",
+  "price_date_range": {
+    "start": "2019-01-02",
+    "end": "2026-09-07"
+  },
+  "instruments": [
+    "ES=F",
+    "CL=F",
+    "GC=F",
+    "ZN=F"
+  ],
+  "strategy_config": {
+    "fast_window": 20,
+    "slow_window": 100,
+    "volatility_window": 20,
+    "target_annual_volatility": 0.12,
+    "max_gross_leverage": 1.0,
+    "one_way_cost_bps": 2.0,
+    "annualization_factor": 252
+  },
+  "metrics": {
+    "total_return": 0.43198099843384385,
+    "annualized_return": 0.04789702701323795,
+    "annualized_volatility": 0.06441982412644857,
+    "sharpe_ratio": 0.7435137810873511,
+    "max_drawdown": -0.07641173063944262,
+    "calmar_ratio": 0.6268281926402829,
+    "hit_rate": 0.5077559462254395,
+    "average_daily_turnover": 0.028333400306943746,
+    "observations": 1934.0
+  },
+  "research_only": true
+}

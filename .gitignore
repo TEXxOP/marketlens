@@ -3,6 +3,8 @@ __pycache__/
 .venv/
 .mlenv/
 artifacts/
+build/
+*.egg-info/
 .streamlit/secrets.toml
 *.py[cod]
 .DS_Store

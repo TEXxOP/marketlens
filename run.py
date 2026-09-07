@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from datetime import datetime, timezone
 import json
 from pathlib import Path
 
@@ -22,13 +23,14 @@ def main() -> None:
     root = Path(__file__).resolve().parent
     output = (root / args.output_dir).resolve()
     output.mkdir(parents=True, exist_ok=True)
+    config = StrategyConfig(
+        fast_window=args.fast_window,
+        slow_window=args.slow_window,
+        target_annual_volatility=args.target_volatility,
+    )
     result = run_research(
         source=args.source,
-        config=StrategyConfig(
-            fast_window=args.fast_window,
-            slow_window=args.slow_window,
-            target_annual_volatility=args.target_volatility,
-        ),
+        config=config,
         event_calendar_path=root / "data" / "sample" / "macro_events.csv",
     )
     result.dataset.prices.to_csv(output / "prices.csv", index_label="date")
@@ -42,6 +44,21 @@ def main() -> None:
             {
                 "source": result.dataset.source,
                 "caveat": result.dataset.caveat,
+                "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+                "price_date_range": {
+                    "start": result.dataset.prices.index.min().date().isoformat(),
+                    "end": result.dataset.prices.index.max().date().isoformat(),
+                },
+                "instruments": list(result.dataset.prices.columns),
+                "strategy_config": {
+                    "fast_window": config.fast_window,
+                    "slow_window": config.slow_window,
+                    "volatility_window": config.volatility_window,
+                    "target_annual_volatility": config.target_annual_volatility,
+                    "max_gross_leverage": config.max_gross_leverage,
+                    "one_way_cost_bps": config.cost_bps,
+                    "annualization_factor": config.annualization_factor,
+                },
                 "metrics": result.backtest.metrics,
                 "research_only": True,
             },
